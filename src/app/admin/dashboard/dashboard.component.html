@@ -1,0 +1,78 @@
+<!-- ========== KPI CARDS ========= -->
+<div class="kpi-grid" @fadeSlide>
+    <mat-card class="kpi">
+      <mat-icon>account_balance_wallet</mat-icon>
+      <span>{{ totals.donations | number }} XAF</span>
+      <small>Total Donations</small>
+    </mat-card>
+  
+    <mat-card class="kpi">
+      <mat-icon>groups</mat-icon>
+      <span>{{ totals.users }}</span>
+      <small>Registered Users</small>
+    </mat-card>
+  
+    <mat-card class="kpi">
+      <mat-icon>event</mat-icon>
+      <span>{{ totals.events }}</span>
+      <small>Upcoming Events</small>
+    </mat-card>
+  
+    <mat-card class="kpi">
+      <mat-icon>volunteer_activism</mat-icon>
+      <span>{{ totals.volunteers }}</span>
+      <small>Volunteers</small>
+    </mat-card>
+  </div>
+  
+  <!-- ========== CHART + QUICK ACTIONS ========= -->
+  <div class="grid-two">
+    <mat-card class="chart-card" @fadeInUp>
+        <div class="chart-container">
+            <canvas baseChart
+              [type]="chartType"
+              [data]="chartData"
+              [options]="chartOptions">
+            </canvas>
+          </div>
+          
+    </mat-card>
+  
+    <mat-card class="actions-card" @fadeInUp>
+      <h3>Quick Actions</h3>
+      <button mat-raised-button color="primary" routerLink="/donate">
+        <mat-icon>attach_money</mat-icon> Record Manual Donation
+      </button>
+      <button mat-raised-button color="primary" routerLink="/up">
+        <mat-icon>event</mat-icon> Create Event
+      </button>
+      <button mat-raised-button color="primary" routerLink="/blo">
+        <mat-icon>person_add</mat-icon> Add Blog
+      </button>
+    </mat-card>
+  </div>
+  
+  <!-- ========== LATEST DONATIONS TABLE ========= -->
+  <mat-card class="table-card" @fadeInUp>
+    <h3>Latest Donations</h3>
+    <table mat-table [dataSource]="latestDonations">
+      <ng-container matColumnDef="donor">
+        <th mat-header-cell *matHeaderCellDef> Donor </th>
+        <td mat-cell *matCellDef="let d"> {{ d.donor }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef> Amount (XAF) </th>
+        <td mat-cell *matCellDef="let d"> {{ d.amount | number }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let d"> {{ d.date }} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card>
+  

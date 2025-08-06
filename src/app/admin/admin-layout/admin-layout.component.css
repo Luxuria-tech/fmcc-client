@@ -1,0 +1,82 @@
+:root {
+    --green: #4ac462;
+    --dark:  #205e2a;
+  }
+  
+  /* -------- Topbar (mobile) -------- */
+  .topbar {
+    
+    background: #205e2a;
+    color: #fff;
+    padding: .75rem 1rem;
+    align-items: center;
+    gap: 1rem;
+  }
+  .hamburger {
+    font-size: 1.5rem;
+    background: transparent;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+  }
+  .title { font-weight: 600; }
+  
+  @media (max-width: 768px) {
+    .topbar { display: flex; }
+  }
+  
+  /* -------- Layout -------- */
+  .admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* -------- Sidebar -------- */
+  .sidebar {
+    width: 260px;
+    background: #205e2a;
+    color: #fff;
+    padding: 1.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #4ac462;
+    text-align: center;
+  }
+  
+  nav a {
+    display: block;
+    padding: .5rem .75rem;
+    border-radius: .45rem;
+    color: #fff;
+    text-decoration: none;
+    transition: background .2s;
+  }
+  nav a:hover { background: rgba(0,0,0,.2); }
+  nav .active { background: #4ac462; }
+  
+  @media (max-width: 768px) {
+    .sidebar {       /* slides over content on mobile */
+      position: fixed;
+      top: 0; left: 0;
+      height: 100vh;
+      z-index: 1000;
+    }
+  }
+  
+  /* -------- Main content -------- */
+  .content {
+    flex: 1 1 0;
+    padding: 2rem;
+    background: #f5f7f5;
+  }
+  
+  /* Optional: add smooth shadow under sidebar (desktop) */
+  @media (min-width: 769px) {
+    .sidebar { box-shadow: 2px 0 8px rgba(0,0,0,.15); }
+  }
+  

@@ -1,0 +1,24 @@
+ <div class="fmcc-blog-section">
+    
+  
+    <div class="fmcc-carousel-wrapper">
+      <!-- Left scroll button -->
+      <button class="fmcc-scroll-btn left" (click)="scrollBlogs('left')">&#8592;</button>
+  
+      <!-- Scrollable container -->
+    <div class="fmcc-card-scroll-container" #scrollContainer>
+  <div class="fmcc-blog-card" *ngFor="let blog of blogPosts; index as i">
+    <img [src]="'http://localhost:5000' + blog.image_url" alt="Preserving Fako Heritage" width="200" height="200">
+    <div class="fmcc-card-content">
+      <h3>{{ blog.title }}</h3>
+      <p>{{ blog.description | slice:0:40 }}...</p>
+      <span class="fmcc-card-meta">{{ blog.date }} • By {{ blog.author }}</span>
+    </div>
+  </div>
+</div>
+
+  
+      <!-- Right scroll button -->
+      <button class="fmcc-scroll-btn right" (click)="scrollBlogs('right')">&#8594;</button>
+    </div>
+  </div>

@@ -1,0 +1,51 @@
+<div class="contact-admin-wrapper">
+  <h1 class="page-title">
+    FMCC — Contact <span style="color: #4ac462; text-decoration: underline;">Submissions</span>
+  </h1>
+
+  <!-- Loading Indicator -->
+  <div *ngIf="loading" class="loading-indicator">
+    Loading contacts, please wait...
+  </div>
+
+  <!-- Contact Table -->
+  <section class="contact-table-card" *ngIf="!loading && contacts.length > 0">
+    <h2 class="section-heading">Contact Messages</h2>
+
+    <table class="contact-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Message</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contact of contacts; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ contact.name }}</td>
+          <td>{{ contact.email }}</td>
+          <td>{{ contact.phone }}</td>
+          <td>{{ contact.message | slice:0:50 }}...</td>
+          <td>
+            <button
+              class="table-btn delete"
+              (click)="deleteContact(i)"
+              [disabled]="loading"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- No contacts message -->
+  <div *ngIf="!loading && contacts.length === 0" class="no-contacts">
+    No contact messages available.
+  </div>
+</div>

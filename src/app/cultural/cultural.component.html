@@ -1,0 +1,162 @@
+<!-- Fako Multipurpose Cultural Center Page - Inspired by Garden Template -->
+
+<app-header></app-header>
+
+ <section class="hero" >
+    <div class="hero-left">
+     
+  
+      <h1 @fadeSlide >Fako. <span class="underline" style="color: #25993c;">Culture.</span><br/>Alive & Radiant</h1>
+    <p @fadeSlide >Our Culture ,our heritage. Learn more about the fako culture in our digital culture home. </p> 
+    </div>
+
+  
+    
+<div class="diagonal-image-stack"  >
+  <img @fadeSlide src="assets/chiefLimbe.jpeg" width="250" height="50" alt="Image 1" class="diagonal-img img1" />
+  <img @fadeSlide src="assets/mbando small size pix/DSC04446.jpg" width="250" height="250" alt="Image 2" class="diagonal-img img2" />
+  <img @fadeSlide src="assets/Mbando/3D4A9609.JPG" width="250" height="250" alt="Image 3" class="diagonal-img img3" />
+</div>
+
+
+    
+    
+    
+  </section>
+
+
+<section class="info-strip">
+  <h2 class="section-title">Our Cultural <span style="text-decoration: underline; color: #38ad4f;">Pillars</span> </h2>
+  <div class="features" >
+    <div class="feature-card">
+      <img  src="assets/chiefLimbe.jpeg" alt="Chief of Limbe">
+      <h3>HRH Epupa Ekum Victor</h3>
+      <p>Protector of coastland traditions and Limbe’s cultural identity.</p>
+    </div>
+    <div class="feature-card">
+      <img  src="assets/mbandoLogo.jpeg" alt="Mbando Festival">
+      <h3>Mbando Festival</h3>
+      <p>Week-long celebration of dance, storytelling, rites, and history.</p>
+    </div>
+    <div class="feature-card">
+      <img  src="assets/chiefEsuka.jpeg" alt="Chief of Buea">
+      <h3>HRH Robert Esuka Endeley</h3>
+      <p>Custodian of the Bakweri heritage and spiritual guardian of Buea.</p>
+    </div>
+    
+  </div>
+</section>
+
+
+
+ <section>
+    <h1 style="text-align: center; color: #4ac462;">Mbando Ya Hvako <span class="underline" style="color: #25993c;">Culture</span></h1>
+    <P style="text-align: center;">The Central vision of a new era for Fako is the proposed construction of the <br> fako Multipurpose Cultural center 
+    ,envisioned as a source of pride and prominent beacon of unity for the fako people </P>
+    <div class="look" >
+      <div  class="Cultural-carousel" >
+        <div class="container" style="height: 400px;">
+           <video #videoPlayer class="video-element" [muted]="isMuted" [autoplay]="false" [controls]="false">
+    <source src="assets/MBANDO ya HVAKO.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div >
+    
+
+    <div class="video-controls">
+      <button (click)="togglePlay(videoPlayer)">
+        {{ isPlaying ? '⏸ Pause' : '▶️ Play' }}
+      </button>
+      <button (click)="toggleMute(videoPlayer)">
+        {{ isMuted ? '🔇 Unmute' : '🔊 Mute' }}
+      </button>
+    </div>
+  </div>
+        </div>
+      </div>
+
+      <div class="cool" >
+       
+          
+<img style="width: 70px; height: 70px; padding: 15px;
+    border-radius: 8px;    margin-left: 50px; margin-top: 5px;" src="assets/mbandoLogo.jpeg" alt="">
+      <h3 style="color: white; text-align: center; font-size: 30px; ">About Mbando ya Hvako <br> Festival</h3>
+<p style="color: #e6f3e6; text-align: center; max-width: 800px; margin: auto; padding: 10px; border-left: 5px solid #25993c; border-right: 5px solid #25993c; background: rgba(0, 50, 0, 0.3); border-radius: 10px;">
+  The <strong>Mbando ya Hvako Festival</strong> is the soul of the Bakweri people — a grand celebration of heritage, identity, and ancestral pride. Held annually in the heart of Fako, this sacred festival blends tradition and unity through vibrant dances, melodious chants, symbolic rites, and ancestral storytelling. Elders pass down wisdom through folklore, while youths connect to their roots through cultural reenactments. More than a gathering, Mbando is a spiritual revival — a reminder that the heartbeat of the land echoes in its people, their culture, and their undying connection to home.
+</p>
+
+</div>
+
+    </div>
+
+    
+  </section>
+
+
+
+
+<!-- cultural.component.html -->
+<section class="bakweri-culture-section">
+  <h2 style="color: #4ac462;"> Discover the <span style="color: #25993c; text-decoration: underline;">Bakweri Culture</span> </h2>
+
+  <div class="culture-grid">
+    <div class="culture-card" *ngFor="let item of bakweriTopics">
+      <img [src]="item.image" [alt]="item.title" />
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.description }}</p>
+      <button (click)="item.expanded = !item.expanded">
+        {{ item.expanded ? 'Read Less' : 'Read More' }}
+      </button>
+      <div class="more-details" *ngIf="item.expanded">
+        <ul>
+          <li *ngFor="let point of item.details"> {{ point }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="theme-audio-section" [class.dark-mode]="isDarkMode">
+  <div class="top-bar">
+    <button (click)="toggleTheme()">
+      {{ isDarkMode ? '🌙 Dark Mode' : '☀️ Light Mode' }}
+    </button>
+
+   
+  </div>
+
+  <h2>🌍 Greetings in Fako Languages</h2>
+  <div class="greetings">
+    <div *ngFor="let greet of greetings">
+      <h3>{{ greet.language }}: <span>{{ greet.text }}</span></h3>
+      <p>{{ greet.translation }}</p>
+    </div>
+  </div>
+
+  <audio #bgMusic loop>
+    <source src="assets/fako-melody.mp3" type="audio/mpeg" />
+  </audio>
+</section>
+
+
+<section class="fako-legends-section">
+  <h2 style="text-decoration: underline;"> <span style="color: #4ac462; text-decoration: none;">Honoring the </span> Legends of Fako</h2>
+  <p class="intro">In every step we take, we walk on paths laid by our ancestors. These legends shaped our identity and spirit.</p>
+
+  <div class="legend-cards">
+    <div class="legend-card" *ngFor="let legend of fakoLegends">
+      <img [src]="legend.image" alt="{{ legend.name }}" />
+      <div class="legend-info">
+        <h3>{{ legend.name }}</h3>
+        <p class="role">{{ legend.role }}</p>
+        <p class="bio">{{ legend.bio }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<app-footer></app-footer>

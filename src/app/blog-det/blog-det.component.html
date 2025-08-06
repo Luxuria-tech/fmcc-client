@@ -1,0 +1,24 @@
+<div class="blog-details-container">
+  <div class="blog-header">
+    <h1>{{ blog.title }}</h1>
+    <div class="meta">
+      <span>🖊️ {{ blog.author }}</span> |
+      <span>📅 {{ blog.date }}</span>
+    </div>
+  </div>
+
+  <div class="blog-image">
+    <img [src]="'http://localhost:5000' + blog.image_url" alt="Blog Image">
+  </div>
+
+  <div class="blog-content">
+    <p>{{ blog.description }}</p>
+    <p *ngIf="blog.content">{{ blog.content }}</p>
+  </div>
+
+  <div class="blog-footer">
+    <button class="back-btn" (click)="goBack()">⬅ Back to Blogs</button>
+  </div>
+</div>
+
+<app-footer></app-footer>

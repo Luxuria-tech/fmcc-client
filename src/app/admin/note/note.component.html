@@ -1,0 +1,90 @@
+
+
+<div class="notif-wrapper">
+  <h1 class="notif-title">FMCC — Notification <span style="color: #4ac462; text-decoration: underline;">Manager</span></h1>
+
+  <!-- ─── Form ─── -->
+  <section class="notif-form-card">
+    <h2 class="section-heading">{{ editMode ? 'Edit Notification' : 'Create Notification' }}</h2>
+
+    <form (ngSubmit)="saveNotification()" #nf="ngForm">
+      <div class="form-row">
+        <label>
+          Title
+          <input
+            type="text"
+            name="title"
+            required
+            [(ngModel)]="current.title"
+          />
+        </label>
+
+        <label>
+          Date
+          <input
+            type="date"
+            name="date"
+            required
+            [(ngModel)]="current.date"
+          />
+        </label>
+      </div>
+
+      <label>
+        Message
+        <textarea
+          rows="4"
+          name="message"
+          required
+          [(ngModel)]="current.message"
+        ></textarea>
+      </label>
+
+      <div class="btn-row">
+        <button type="submit" class="btn-primary" [disabled]="nf.invalid">
+          {{ editMode ? 'Update' : 'Publish' }}
+        </button>
+        <button
+          type="button"
+          class="btn-secondary"
+          *ngIf="editMode"
+          (click)="cancelEdit()"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ─── Notifications Table ─── -->
+  <section class="notif-table-card">
+    <h2 class="section-heading">All Notifications</h2>
+
+    <table class="notif-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Date</th>
+          <th>Message (preview)</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let n of notifications; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ n.title }}</td>
+          <td>{{ n.date }}</td>
+          <td>{{ n.message | slice : 0 : 50 }}...</td>
+          <td>
+            <button class="btn-delete" (click)="deleteNotification(i)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+
+

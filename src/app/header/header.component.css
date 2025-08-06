@@ -1,0 +1,209 @@
+.header-social-container .social-link {
+  padding: 5px;
+  border-radius: 50%;
+  background: hsl(0, 0%, 95%);
+  color: hsl(0, 0%, 47%);
+  transition: 0.2s ease;
+}
+
+.header-social-container .social-link:hover {
+  background: hsl(353, 100%, 78%);
+  color: hsl(0, 100%, 100%);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: url('../../assets/plain.PNG');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 1rem 2rem;
+  width: 100%;
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 30px;
+  color: #267937;
+}
+
+.logo img {
+  height: 32px;
+  margin-right: 10px;
+}
+
+.desktop-nav a {
+  position: relative;
+  font-size: 18px;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.desktop-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 0.3s ease, width 0.3s ease;
+}
+
+.desktop-nav a.active-link::after {
+  background-color: yellow;
+}
+
+.download-app {
+  background-color: #4ac462;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: white;
+  padding: 15px 22px;
+  border-radius: 20px;
+  border: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+ text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.download-app:hover {
+  background-color: #2d9941;
+}
+
+/* === MOBILE MENU ELEMENTS === */
+.nav-toggle {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  margin-right: 1rem;
+  font-size: 32px;
+  color: white;
+}
+
+.notification-btn {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.notification-btn .material-symbols-outlined {
+  font-size: 32px;
+  color: white;
+}
+
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 50%;
+  background: yellow;
+  color: #18551e;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  padding: 80px 24px 24px;
+  background: #18551e;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1100;
+}
+
+.mobile-nav a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.nav-toggle:checked ~ .mobile-nav {
+  transform: translateX(0);
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media (max-width: 960px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+  
+  .download-app {
+    margin-right: 100px ;
+    width: auto;
+    padding: 6px 12px;
+    font-size: 14px;
+    height: 40px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .logo img {
+    height: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .download-app {
+    background: transparent;
+    display: none;
+    
+  }
+  
+  .notification-btn {
+    font-size: 20px;
+  }
+
+
+  .logo {
+    font-size: 23px;
+  }
+  .right-icons{
+    margin-left: 140px;
+  }
+
+ 
+
+  .menu-icon {
+    font-size: 28px;
+  }
+}

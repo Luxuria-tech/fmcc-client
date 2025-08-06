@@ -1,0 +1,99 @@
+/* theme */
+:root {
+    --green: #25993c;
+    --green-light: #4ac462;
+  }
+  
+  /* ---------- hero ---------- */
+  .hero {
+    background: linear-gradient(to bottom, rgb(77, 255, 151),#d1ffcb);
+    background: linear-gradient(to bottom,#6cfa73a2, #ffffff);
+    color: #fff;
+   
+    padding: 4rem 1rem 5rem;
+  }
+  .hero h1 {margin-left: 30px; font-size: clamp(2.2rem, 5vw, 3rem); }
+  .hero p  {margin-left: 30px;  font-size: 1.1rem; }
+  
+  /* ---------- tabs ---------- */
+  .tabs nav {
+    display: flex; justify-content: center; gap: 1rem; margin: 2rem 0 1rem;
+  }
+  .tabs button {
+    background: #eee; border: none; padding: .6rem 1.2rem; border-radius: 30px;
+    cursor: pointer; transition: background .3s;
+  }
+  .tabs button.active,
+  .tabs button:hover { background: #25993c; color: #fff; }
+  .tab-content { max-width: 800px; margin: auto; font-size: 1rem; }
+  
+  /* ---------- timeline ---------- */
+  .timeline { padding: 3rem 1rem; background: #f7f7f7; }
+  .timeline h2 { text-align: center; color: #25993c; margin-bottom: 2rem; }
+  .timeline ul { list-style: none; margin: 0; padding: 0; position: relative; }
+  .timeline ul::before {
+    content: ''; position: absolute; left: 20px; top: 0; bottom: 0;
+    width: 4px; background: #25993c;
+  }
+  .timeline-item { margin-left: 60px; margin-bottom: 2rem; position: relative; }
+  .timeline-item .dot {
+    position: absolute; left: -40px; top: 4px;
+    width: 16px; height: 16px; background: #25993c;
+    border-radius: 50%; box-shadow: 0 0 0 4px #fff;
+  }
+  .timeline-item h4 { margin: 0 0 .3rem; color: #25993c; }
+  
+  /* ---------- stats ---------- */
+  .stats {
+    display: flex; justify-content: center; gap: 2rem; padding: 3rem 1rem;
+    background: #fff;
+  }
+  .stat { text-align: center; }
+  .stat h3 { margin: 0; font-size: 2.2rem; color: #4ac462; }
+  .stat p  { margin: .3rem 0 0; }
+  
+  /* ---------- team grid ---------- */
+  .team { padding: 3rem 1rem; background: #f7f7f7; text-align: center; }
+  .team h2 { color: #25993c; margin-bottom: 2rem; }
+  .grid {
+    display: grid; gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  .card { perspective: 800px; }
+  .card-inner {
+    position: relative; width: 100%; height: 300px;
+    transition: transform .6s; transform-style: preserve-3d;
+  }
+  .card:hover .card-inner { transform: rotateY(180deg); }
+  .card-front, .card-back {
+    position: absolute; inset: 0; backface-visibility: hidden;
+    border-radius: 1rem; overflow: hidden; display: flex;
+    flex-direction: column; align-items: center; justify-content: center;
+    padding: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  }
+  .card-front { background: #fff; }
+  .card-front img { width: 100%; height: 60%; object-fit: cover; }
+  .card-front h4 { margin: .6rem 0 .2rem; }
+  .card-front span { color: #25993c; }
+  .card-back {
+    background: #25993c; color: #fff; transform: rotateY(180deg);
+  }
+  
+  /* ---------- cta ---------- */
+  .cta {
+    background: #25993c; color: #fff; text-align: center;
+    padding: 3rem 1rem; position: relative;
+  }
+  .cta .btn {
+    display: inline-block; margin-top: 1rem;
+    background: #fff; color: #25993c;
+    padding: .7rem 1.5rem; border-radius: 40px; font-weight: 600;
+    transition: transform .3s;
+  }
+  .cta .btn:hover { transform: scale(1.08); }
+  
+  /* ---------- mobile tweaks ---------- */
+  @media (max-width: 640px) {
+    .stats { flex-direction: column; gap: 1.5rem; }
+  }
+  

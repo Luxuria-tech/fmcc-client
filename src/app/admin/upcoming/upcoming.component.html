@@ -1,0 +1,100 @@
+<div class="event-wrapper">
+  <h1 class="page-title">
+    FMCC — Upcoming Events
+    <span style="color:#4ac462; text-decoration: underline;">Manager</span>
+  </h1>
+
+  <!-- Upload Form -->
+  <section class="event-form-card">
+    <h2 class="section-heading">{{ editMode ? 'Edit Event' : 'Add New Event' }}</h2>
+
+    <form (ngSubmit)="saveEvent()" #ef="ngForm" autocomplete="off">
+      <div class="form-row">
+        <label>
+          Event Title
+          <input
+            type="text"
+            name="title"
+            required
+            [(ngModel)]="current.title"
+          />
+        </label>
+
+        <label>
+          Date
+          <input
+            type="date"
+            name="date"
+            required
+            [(ngModel)]="current.date"
+          />
+        </label>
+      </div>
+
+      <label>
+        Location (optional)
+        <input
+          type="text"
+          name="location"
+          [(ngModel)]="current.location"
+          placeholder="e.g. Limbe Conference Hall"
+        />
+      </label>
+
+      <label>
+        Description
+        <textarea
+          name="description"
+          rows="4"
+          required
+          [(ngModel)]="current.description"
+        ></textarea>
+      </label>
+
+      <div class="btn-row">
+        <button type="submit" class="btn-primary" [disabled]="ef.invalid">
+          {{ editMode ? 'Update Event' : 'Publish Event' }}
+        </button>
+        <button
+          type="button"
+          class="btn-secondary"
+          *ngIf="editMode"
+          (click)="cancelEdit()"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Event List Table -->
+  <section class="event-table-card">
+    <h2 class="section-heading">All Upcoming Events</h2>
+
+    <table class="event-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Date</th>
+          <th>Location</th>
+          <th>Description (preview)</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ event.title }}</td>
+          <td>{{ event.date | date }}</td>
+          <td>{{ event.location || '-' }}</td>
+          <td>{{ event.description | slice: 0: 60 }}…</td>
+          <td>
+            <button class="table-btn edit" (click)="startEdit(i)">Edit</button>
+            <button class="table-btn delete" (click)="deleteEvent(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

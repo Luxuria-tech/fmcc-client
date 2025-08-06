@@ -1,0 +1,35 @@
+<!-- Top bar (visible on mobile) -->
+<header class="topbar">
+    <button class="hamburger" (click)="toggleSidebar()">
+      ☰
+    </button>
+    <span class="title">FMCC Admin</span>
+  </header>
+  
+  <!-- Layout wrapper -->
+  <div class="admin-wrapper">
+    <!-- ===== SIDEBAR ===== -->
+    <aside
+      class="sidebar"
+      *ngIf="sidebarOpen()"
+      @slideInOut
+      (click)="toggleSidebar() ">
+      <h2 class="logo">FMCC</h2>
+  
+      <nav>
+        <a routerLink="dashboard" routerLinkActive="active">Dashboard</a>
+        <a routerLink="donations" routerLinkActive="active">Donations</a>
+        <a routerLink="blo" routerLinkActive="active">Blogs</a>
+        <a routerLink="note" routerLinkActive="active">Notifications</a>
+   
+        <a routerLink="up" routerLinkActive="active"> Events</a>
+        <a routerLink="cont" routerLinkActive="active">Contacts</a>
+      </nav>
+    </aside>
+  
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+  

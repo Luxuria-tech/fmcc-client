@@ -1,0 +1,46 @@
+<app-header></app-header>
+
+<section class="notif-hero" [@fadeSlide]>
+  <h1 class="notif-title accent" [@fadeSlide]>
+    Notifications <span class="thin">Center</span>
+  </h1>
+  <p class="notif-tagline" [@fadeSlide]>
+    Stay updated with the latest events, announcements & cultural highlights.
+  </p>
+</section>
+
+<!-- ===== Toolbar: search + filter + actions ===== -->
+<div class="notif-toolbar" [@fadeInUp]>
+    <mat-form-field>
+        <mat-select [(value)]="selectedFilter" (selectionChange)="filter()">
+          <mat-option value="all">All</mat-option>
+          <mat-option value="unread">Unread</mat-option>
+          <mat-option value="events">Events</mat-option>
+          <mat-option value="announcements">Announcements</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <button mat-raised-button color="primary" (click)="markAllAsRead()">
+        Mark All As Read
+      </button>
+      
+      <mat-accordion multi [displayMode]="'flat'">
+        <mat-expansion-panel *ngFor="let n of notifications; let i = index"
+                             [ngClass]="{ unread: !n.read }"
+                             (opened)="open(i)">
+          <mat-expansion-panel-header>
+            <mat-panel-title>{{ n.title }}</mat-panel-title>
+            <mat-panel-description>{{ n.description }}</mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>{{ n.description }}</p>
+          <small>{{ n.time | date:'MMM d, h:mm a' }}</small>
+          <br>
+          <button mat-button color="accent" (click)="markAsRead(i)" *ngIf="!n.read">
+            Mark as Read
+          </button>
+        </mat-expansion-panel>
+      </mat-accordion>
+      
+      
+
+      <app-footer></app-footer>

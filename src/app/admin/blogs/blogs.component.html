@@ -1,0 +1,85 @@
+<div class="blog-admin-wrapper">
+  <h1 class="page-title">FMCC — Blog Upload & <span style="color: #4ac462; text-decoration: underline;">Management</span></h1>
+
+  <!-- ───── BLOG FORM ───── -->
+  <section class="blog-form-card">
+    <h2 class="form-heading">{{ editMode ? 'Edit Blog Post' : 'Create Blog Post' }}</h2>
+
+    <form (ngSubmit)="saveBlog()" #f="ngForm">
+      <!-- Row 1 -->
+      <div class="form-row">
+        <label>
+          Title
+          <input type="text" name="title" [(ngModel)]="currentBlog.title" required />
+        </label>
+
+        <label>
+          Author
+          <input type="text" name="author" [(ngModel)]="currentBlog.author" required />
+        </label>
+
+        <label>
+          Date
+          <input type="date" name="date" [(ngModel)]="currentBlog.date" required />
+        </label>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="form-row">
+        <label class="file-label">
+          Featured Image
+          <input type="file" accept="image/*" (change)="onImageSelect($event)" />
+        </label>
+        <div *ngIf="currentBlog.image_url && !currentBlog.image" class="image-preview">
+          <img [src]="currentBlog.image_url" alt="Current Blog Image" />
+        </div>
+      </div>
+
+      <!-- Row 3 -->
+      <label>
+        Description
+        <textarea rows="4" name="description" [(ngModel)]="currentBlog.description" required></textarea>
+      </label>
+
+      <!-- Buttons -->
+      <div class="button-row">
+        <button type="submit" class="btn-primary" [disabled]="f.invalid">
+          {{ editMode ? 'Update' : 'Publish' }}
+        </button>
+        <button type="button" class="btn-secondary" *ngIf="editMode" (click)="cancelEdit()">Cancel</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ───── BLOG LIST TABLE ───── -->
+  <section class="blog-table-card">
+    <h2 class="table-heading">Existing Blog Posts</h2>
+
+    <table class="blog-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Date</th>
+          <th>Description (preview)</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let blog of blogPosts; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ blog.title }}</td>
+          <td>{{ blog.author }}</td>
+          <td>{{ blog.date }}</td>
+          <td>{{ blog.description | slice:0:40 }}...</td>
+          <td>
+            <button class="table-btn edit" (click)="startEdit(i)">Edit</button>
+            <button class="table-btn delete" (click)="deleteBlog(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

@@ -1,0 +1,126 @@
+<app-header></app-header>
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 style="color: #4ac462;"><span style="color: green; text-decoration: underline;">Support</span> the fako <span style="color: green; text-decoration: underline;">Multipurpose </span> <br>Center
+    (FMCC)</h1>
+      <p>Together we preserve Fako’s culture &amp; empower tomorrow’s talent.</p>
+      <button  style="margin-left: 140px; margin-top: 50px; color: white; background: #4ac462; "
+       mat-raised-button color="primary" (click)="scrollToForm()">Donate Now</button>
+    </div>
+  </section>
+  
+ 
+ <!-- ─────────── FUND-GOAL HERO ─────────── -->
+<section class="goal-hero">
+  <h2 class="goal-heading" style="color: #4ac462;">2025 Cultural Centre <span style="color: green; text-decoration: underline;">Fund Goal</span> </h2>
+
+  <!-- Circular progress -->
+  <div class="progress-wrapper">
+    <mat-progress-spinner
+      class="goal-spinner"
+      mode="determinate"
+      [value]="progress"
+      diameter="140"
+      strokeWidth="8"
+      color="primary">
+    </mat-progress-spinner>
+    <div class="goal-center">
+      {{ progress | number:'1.0-0' }}%
+    </div>
+  </div>
+
+  <p class="goal-text">
+    <strong>{{ raised }}</strong>
+    raised of {{goal}}
+   
+  </p>
+</section>
+
+<!-- ─────────── DONOR SUMMARY SECTION ─────────── -->
+<section class="donor-summary">
+  <h2 style="text-align: center; color: #4ac462;">Donor Highlights</h2>
+
+  <div class="summary-cards">
+    <div class="summary-card">
+      <h3>{{ totalDonors }}</h3>
+      <p>People have donated</p>
+    </div>
+    <div class="summary-card">
+      <h3>{{ raised | currency:'XAF':'symbol':'1.0-0' }}</h3>
+      <p>Total amount raised</p>
+    </div>
+  </div>
+
+  
+
+  <!-- Download Button -->
+  <div class="download-wrapper">
+    <a href="assets/donorReport.docx" download class="download-btn">
+      📥 Download Full Donation Report
+    </a>
+  </div>
+</section>
+
+
+<!-- ─────────── DONATION FORM ─────────── -->
+<section class="donation-card">
+  <h2 class="form-heading" style="text-align: center; color: #4ac462;">Make a Donation</h2>
+<div class="payment-container">
+  <h2>Choose Your Payment Method</h2>
+
+  <div class="button-group">
+    <button (click)="showForm('momo')" [class.active]="paymentType === 'momo'">Pay with MoMo</button>
+    <button (click)="showForm('bank')" [class.active]="paymentType === 'bank'">Pay with Bank</button>
+  </div>
+
+  <!-- ✅ Error Image on MoMo Payment Failure -->
+  <div *ngIf="showErrorImage && paymentType === 'momo'" class="error-image-container">
+    <img style="width: 380px; height: 450px;" src="assets/MOMO.png" alt="Payment Failed" class="error-image">
+    <p class="error-text">Payment failed. Please try again.</p>
+  </div>
+
+  <!-- ✅ MoMo Form (hidden if error image is displayed) -->
+  <form *ngIf="paymentType === 'momo' && !showErrorImage" [formGroup]="momoForm" (ngSubmit)="onSubmit()" class="form-section">
+    <h3>MoMo Payment</h3>
+
+    <input formControlName="fullName" placeholder="Full Name" />
+    <input formControlName="momoNumber" placeholder="MoMo Number (+237...)" />
+    <input formControlName="amount" type="number" placeholder="Amount (XAF)" />
+
+    <button type="submit" [disabled]="isSubmitting || momoForm.invalid">
+      {{ isSubmitting ? 'Processing...' : 'Submit MoMo Payment' }}
+    </button>
+
+    <div *ngIf="isSubmitting" class="spinner"></div>
+  </form>
+
+  <p *ngIf="responseMessage" class="info-message">{{ responseMessage }}</p>
+
+  <!-- Success Modal -->
+  <div *ngIf="showSuccess" class="overlay">
+    <div class="modal">
+      <h2>Payment Request Sent ✅</h2>
+      <p>Please approve the MoMo prompt on your phone.</p>
+      <button (click)="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <!-- Bank Form -->
+  <form *ngIf="paymentType === 'bank'" (ngSubmit)="submitBank()" #bankForm="ngForm" class="form-section">
+   <img style="width: 300; height: 400px;" src="assets/BANKPAY.png" alt="">
+   
+    <h3>Bank Payment</h3>
+
+    <input type="text" name="fullName" [(ngModel)]="bankData.fullName" placeholder="Full Name" required />
+    <input type="text" name="bankName" [(ngModel)]="bankData.bankName" placeholder="Bank Name" required />
+    <input type="text" name="transactionId" [(ngModel)]="bankData.transactionId" placeholder="Transaction ID" required />
+    <input type="number" name="amount" [(ngModel)]="bankData.amount" placeholder="Amount" required />
+
+    <button type="submit" [disabled]="!bankForm.form.valid">Submit Bank Payment</button>
+  </form>
+</div>
+</section>
+
+  
+  <app-footer></app-footer>

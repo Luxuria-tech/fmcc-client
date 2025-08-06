@@ -1,0 +1,59 @@
+<header class="header">
+
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+
+  <div class="nav-wrapper">
+
+   
+    <label for="nav-toggle" class="menu-icon">
+     <i class="fas fa-bars"></i>
+    </label>
+
+   
+    <a class="logo">
+      <img style="border-radius: 50px;" [ngSrc]="'assets/mbandoLogo.jpeg'" alt="Example" width="30" height="20" />
+      <span>FMCC</span>
+    </a>
+
+    
+    <nav class="desktop-nav" style=" background: #18551e;
+    padding: 20px 30px;
+    border-radius: 50px;
+    text-align: center;
+    justify-content: space-around;
+    width: 43%;
+
+    margin-bottom: 20px;">
+      <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a routerLink="/cultural" routerLinkActive="active-link">Cultural</a>
+     
+      <a routerLink="/about" routerLinkActive="active-link">About</a>
+      <a routerLink="/blog" routerLinkActive="active-link">Blog</a>
+      <a routerLink="/contacts" routerLinkActive="active-link">Contacts</a>
+    </nav>
+
+    <div class="right-icons" style="display: flex; gap: 10px; margin-right: 40px;">
+      <button routerLink="/notify" class="notification-btn" aria-label="Notifications">
+        <i style="font-size: 2rem;" class="fas fa-bell"></i>
+        <span class="badge">4</span>
+      </button>
+
+      <button style="display: flex; gap: 20px; " routerLink="/donate" class="download-app">
+        <i  style="margin-left: 35px;" class="fas fa-donate  show"></i>
+        Donate
+      </button>
+    </div>
+  </div>
+
+ 
+  <nav class="mobile-nav">
+    <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a routerLink="/cultural" routerLinkActive="active-link">Cultural</a>
+    
+    <a routerLink="/about" routerLinkActive="active-link">About</a>
+    <a routerLink="/blog" routerLinkActive="active-link">Blog</a>
+     <a routerLink="/donate" routerLinkActive="active-link">Donate</a>
+    <a routerLink="/contacts" routerLinkActive="active-link">Contacts</a>
+  </nav>
+
+</header>

@@ -1,0 +1,213 @@
+.donor-summary {
+  padding: 60px 20px;
+  background: #f0fff3;
+  text-align: center;
+}
+
+.summary-cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.summary-card {
+  background: #fff;
+  border: 2px solid #4ac462;
+  padding: 30px;
+  border-radius: 10px;
+  width: 250px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.summary-card h3 {
+  font-size: 2rem;
+  color: #25993c;
+  margin-bottom: 10px;
+}
+
+.donor-table {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.donor-table th, .donor-table td {
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  color: #222;
+}
+
+.download-wrapper {
+  margin-top: 30px;
+}
+
+.download-btn {
+  padding: 12px 25px;
+  background-color: #4ac462;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.download-btn:hover {
+  background-color: #25993c;
+}
+
+.section {
+    padding: 4rem 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #c15200;            
+  }
+  
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    min-height: 50vh;
+    background: linear-gradient(to bottom, rgb(77, 255, 151),#d1ffcb);
+    background: linear-gradient(to bottom,#6cfa73a2, #ffffff);
+    display: flex;
+  
+   
+    padding: 3rem 1rem;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    margin-left: 40px;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
+  .hero p {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  
+
+
+  .goal-hero {
+    text-align: center;
+    padding: 40px 20px;
+    background: black;
+  }
+  .goal-heading   { color: green; margin-bottom: 16px; }
+  .progress-wrapper {
+    position: relative;
+    width: 140px; height: 140px;
+    margin: 0 auto 12px;
+  }
+  .goal-spinner   { transform: rotate(-90deg); } 
+  .goal-center    {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; font-weight: 600; color: green;
+  }
+  .goal-text      { font-size: 1rem; color: #444; }
+  
+
+  
+  /* ---------- Responsive ---------- */
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 2.25rem; }
+    .hero p { font-size: 1.1rem; }
+  }
+  .payment-container {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  h2, h3 {
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 1.5rem;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .button-group button {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-group button:hover {
+    background-color: #51ec51;
+    color: #2e7d32;
+    font-weight: 600;
+  }
+  
+  .form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border: 1px solid #2e7d32;
+    border-radius: 10px;
+  }
+  
+ 
+  input {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline-color: #2e7d32;
+  }
+  
+  button[type="submit"] {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #51ec51;
+    color: #2e7d32;
+  }
+
+  .form-section input { display:block; margin:.5rem 0; padding:.5rem; width:100%; }
+.spinner{border:4px solid #eee;border-top:4px solid #4ac462;border-radius:50%;width:24px;height:24px;animation:spin .8s linear infinite;margin:.5rem auto}
+@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+.info{margin:.5rem 0;font-weight:bold}
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#0005;display:flex;align-items:center;justify-content:center}
+.modal{background:#fff;padding:2rem;border-radius:8px;text-align:center}

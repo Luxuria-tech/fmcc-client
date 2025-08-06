@@ -1,0 +1,69 @@
+:root {
+    --green: #4ac462;
+    --dark: #25993c;
+    --bg: #fefdf9;
+  }
+  
+  .contact-admin-wrapper {
+    padding: 60px 30px;
+    background: #fefdf9;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .page-title {
+    color: #25993c;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 36px;
+  }
+  
+  .section-heading {
+    color: #25993c;
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+  
+  .contact-table-card {
+    background: #fff;
+    border: 1px solid #e4e4e4;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .07);
+  }
+  
+  .contact-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  
+  .contact-table th,
+  .contact-table td {
+    border: 1px solid #ddd;
+    padding: 10px 8px;
+    text-align: left;
+  }
+  
+  .contact-table th {
+    background: #25993c;
+    color: #fff;
+  }
+  
+  .table-btn {
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  
+  .table-btn.delete {
+    background:  #4ac462;
+    color: #fff;
+  }
+  
+  .table-btn.delete:hover {
+    background:  #4ac462;
+  }
+  

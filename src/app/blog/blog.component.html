@@ -1,0 +1,192 @@
+<app-header></app-header>
+<div class="blog-header">
+    <h1 class="title">Fako Multipurpose Center Blog & News</h1>
+    <p class="subtitle">Stay updated with the latest cultural stories and insights from FMCC</p>
+  
+    <div class="search-filter-wrapper">
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search blog posts..."
+        [(ngModel)]="searchTerm"
+        (input)="onSearch()"
+        aria-label="Search blog posts"
+      />
+  
+      <div class="filter-buttons">
+        <button
+          class="filter-btn"
+          [class.active]="selectedFilter === 'All'"
+          (click)="selectFilter('All')"
+        >All</button>
+        <button
+          class="filter-btn"
+          [class.active]="selectedFilter === 'Culture'"
+          (click)="selectFilter('Culture')"
+        >Culture</button>
+        <button
+          class="filter-btn"
+          [class.active]="selectedFilter === 'Vision'"
+          (click)="selectFilter('Vision')"
+        >Vision</button>
+      </div>
+    </div>
+  </div>
+  <h1 style="color: #1b5e20; text-align: center;">Articles on the FMCC</h1>
+  <div class="cards-container">
+    
+    <div class="card fade-in" [@fadeInUp]>
+    <img src="assets/fako2.PNG"alt="The Vision Behind FMCC" width="150" height="150" />
+    <div class="card-text">
+      <h2>Reviving Culture Through Innovation</h2>
+      <p>
+        Discover how the Fako Multipurpose Center is blending tradition with technology to foster cultural revival.
+      </p>
+      <div *ngIf="expandedCardTitle === 'Reviving Culture Through Innovation'">
+        <p>
+          This initiative involves digitizing traditional practices, hosting tech-infused cultural events,
+          and preserving ancestral knowledge through modern platforms. It’s a bold step toward making culture
+          relevant to younger generations while respecting its roots.
+        </p>
+        <p>
+          From dance and folklore to community innovation hubs, the center is creating a bridge between legacy and future.
+        </p>
+      </div>
+      <button (click)="readMore('Reviving Culture Through Innovation')">
+        {{ expandedCardTitle === 'Reviving Culture Through Innovation' ? 'Show Less' : 'Continue Reading' }}
+      </button>
+    </div>
+    </div>
+  
+  
+  
+    <div class="card fade-in" [@fadeInUp]>
+    <img src="assets/fako1.PNG" alt="The Vision Behind FMCC" width="150" height="150" />
+    <div class="card-text">
+      <h2>The Vision Behind FMCC</h2>
+      <p>
+        A look into the dream and roadmap for building a world-class cultural center in Fako.
+      </p>
+      <div *ngIf="expandedCardTitle === 'The Vision Behind FMCC'">
+        <p>
+          The center aims to be a beacon for preserving Fako's cultural heritage while empowering
+          communities through education, tourism, and economic development. The blueprint includes amphitheaters,
+          art galleries, libraries, and learning spaces for youth.
+        </p>
+        <p>
+          The vision is not just about buildings — it’s about building identity, pride, and legacy
+          for generations to come.
+        </p>
+      </div>
+      <button (click)="readMore('The Vision Behind FMCC')">
+        {{ expandedCardTitle === 'The Vision Behind FMCC' ? 'Show Less' : 'Continue Reading' }}
+      </button>
+    </div>
+  </div>
+  </div>
+  <h2 class="fmcc-blog-title">Latest Articles from FMCC</h2>
+  
+  <div class="fmcc-blog-section">
+    
+  
+    <div class="fmcc-carousel-wrapper">
+      <!-- Left scroll button -->
+      <button class="fmcc-scroll-btn left" (click)="scrollBlogs('left')">&#8592;</button>
+  
+      <!-- Scrollable container -->
+    <div class="fmcc-card-scroll-container" #scrollContainer>
+  <div class="fmcc-blog-card" *ngFor="let blog of blogPosts; index as i" (click)="blog.id !== undefined && goToBlog(blog.id)"
+ style="cursor: pointer;">
+  
+    <img [src]="'http://localhost:5000' + blog.image_url" alt="Preserving Fako Heritage" width="200" height="200">
+    <div class="fmcc-card-content">
+      <h3>{{ blog.title }}</h3>
+      <p>{{ blog.description | slice:0:40 }}...</p>
+      <span class="fmcc-card-meta">{{ blog.date }} • By {{ blog.author }}</span>
+    </div>
+    
+  </div>
+  
+</div>
+
+  
+      
+      <button class="fmcc-scroll-btn right" (click)="scrollBlogs('right')">&#8594;</button>
+    </div>
+  </div>
+  
+  
+  <div class="fmcc-did-you-know-carousel">
+    <div class="fmcc-dyk-slide" [class.active]="currentSlide === 0">
+      <h3 class="fmcc-dyk-title">Did You Know?</h3>
+      <p class="fmcc-dyk-text">
+        Mount Cameroon (Fako Mountain) is one of the most culturally significant landmarks in Central Africa. FMCC organizes storytelling hikes that celebrate its folklore.
+      </p>
+    </div>
+  
+    <div class="fmcc-dyk-slide" [class.active]="currentSlide === 1">
+      <h3 class="fmcc-dyk-title">Did You Know?</h3>
+      <p class="fmcc-dyk-text">
+        FMCC hosts annual cultural exhibitions featuring Fako music, traditional attire, and ancient dance rituals passed down for generations.
+      </p>
+    </div>
+  
+    <div class="fmcc-dyk-slide" [class.active]="currentSlide === 2">
+      <h3 class="fmcc-dyk-title">Did You Know?</h3>
+      <p class="fmcc-dyk-text">
+        The name “Fako” also refers to the highest peak in West and Central Africa, symbolizing strength and unity in the local culture.
+      </p>
+    </div>
+  
+    <div class="fmcc-dyk-slide" [class.active]="currentSlide === 3">
+      <h3 class="fmcc-dyk-title">Did You Know?</h3>
+      <p class="fmcc-dyk-text">
+        FMCC offers mentorship to local youths through heritage storytelling and skill-sharing from village elders.
+      </p>
+    </div>
+  </div>
+  
+  <div class="fmcc-subscribe-section">
+    <h3 class="fmcc-subscribe-title">Join the FMCC Story Circle</h3>
+    <p class="fmcc-subscribe-text">
+      Be part of our journey. Receive inspiring stories, cultural events, and heritage updates from the heart of Fako.
+    </p>
+  
+    <div class="fmcc-subscribe-form">
+      <input
+        type="email"
+        placeholder="Enter your email address"
+        class="fmcc-subscribe-input"
+      />
+      <button class="fmcc-subscribe-button">Subscribe</button>
+    </div>
+  </div>
+  
+  <div class="fmcc-share-form-section">
+    <h2 class="fmcc-share-title">Share Your Story with FMCC</h2>
+    <p class="fmcc-share-text">Have a cultural experience, event, or memory to share? Submit your blog post here!</p>
+  
+    <form class="fmcc-blog-form" (ngSubmit)="saveBlog()" #f="ngForm">
+      <input type="text" placeholder="Blog Title" [(ngModel)]="currentBlog.title" name="title" required />
+      <input type="text" placeholder="Author" [(ngModel)]="currentBlog.author" name="author" required />
+      <input type="date" [(ngModel)]="currentBlog.date" name="date" required />
+      <textarea rows="4" placeholder="Short Description..." [(ngModel)]="currentBlog.description" name="description" required></textarea>
+      <input type="file" accept="image/*" (change)="onImageSelect($event)" />
+      <button type="submit" [disabled]="f.invalid">Post Blog</button>
+    </form>
+  
+    <div *ngIf="currentBlogPreview" class="fmcc-blog-preview">
+      <h3 class="preview-heading">Your Blog Preview</h3>
+      <div class="fmcc-blog-card">
+        <img [src]="currentBlogPreview.imageUrl" alt="Uploaded blog image" />
+
+        <div class="fmcc-blog-card-content">
+          <h4>{{ currentBlogPreview.title }}</h4>
+          <p>{{ currentBlogPreview.description }}</p>
+          <span>{{ currentBlogPreview.date }} • {{ currentBlogPreview.author }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <app-footer></app-footer>

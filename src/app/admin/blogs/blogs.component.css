@@ -1,0 +1,106 @@
+:root {
+    --green: #4ac462;
+    --dark:  #267937;
+    --bg:    #fefdf9;
+  }
+  
+  /* Wrapper */
+  .blog-admin-wrapper {
+    padding: 60px 30px;
+    background: #fefdf9;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Headings */
+  .page-title    { text-align: center; color: #267937;font-size: 28px; margin-bottom: 32px; }
+  .form-heading  { color: #267937;margin-bottom: 16px; font-size: 20px; }
+  .table-heading { color: #267937;margin-bottom: 12px; font-size: 20px; }
+  
+  /* Cards */
+  .blog-form-card,
+  .blog-table-card {
+    background: #fff;
+    border: 1px solid #e4e4e4;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+  }
+  
+  /* Form */
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  label {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    font-size: 14px;
+    color: #333;
+  }
+  input[type="text"],
+  input[type="date"],
+  textarea {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 4px;
+    font-size: 15px;
+  }
+  textarea { resize: vertical; }
+  
+  /* File input */
+  .file-label input[type="file"] {
+    margin-top: 8px;
+  }
+  
+  /* Buttons */
+  .button-row {
+    margin-top: 20px;
+    text-align: right;
+  }
+  .btn-primary,
+  .btn-secondary,
+  .table-btn {
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .btn-primary   { background: #4ac462; color: #fff; }
+  .btn-primary:hover { background: #3bb954; }
+  
+  .btn-secondary { background: #ccc; color: #222; margin-left: 8px; }
+  .btn-secondary:hover { background: #b5b5b5; }
+  
+  /* Table */
+  .blog-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .blog-table th,
+  .blog-table td {
+    border: 1px solid #ddd;
+    padding: 10px 8px;
+    text-align: left;
+  }
+  .blog-table th {
+    background: var(--dark);
+    color: #4ac462;;
+  }
+  .table-btn {
+    padding: 4px 8px;
+    margin-right: 4px;
+  }
+  .table-btn.edit   { background:#4ac462; color: #fff; }
+  .table-btn.delete { background: #4ac462; color: #fff; }
+  
+  .table-btn.edit:hover   { background: #4ac462; }
+  .table-btn.delete:hover { background:#4ac462; }
+  
