@@ -5,10 +5,6 @@
 /dist/
 /.angular/cache/
 .angular/
-*.JPG
-*.PNG
-*.mp4
-*.mov
 
 # If frontend is at root, use:
 node_modules/
