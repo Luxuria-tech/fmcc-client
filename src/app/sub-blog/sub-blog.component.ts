@@ -26,7 +26,9 @@ export class SubBlogComponent implements OnInit{
     
    
      load() {
-       this.svc.list().subscribe(res => this.blogPosts = res);
+       this.svc.list().subscribe((res: Blog[]) => {
+  this.blogPosts = res;
+});
      }
    
     saveBlog() {
