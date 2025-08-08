@@ -16,7 +16,7 @@ export interface Blog {
 @Injectable({ providedIn: 'root' })
 export class BlogService {
   
-  private apiUrl = 'http.get('${environment.apiURL}/blogs');
+  private apiUrl = 'this.http.get('${environment.apiUrl}/blogs');
 
   constructor(private http: HttpClient) {}
 
