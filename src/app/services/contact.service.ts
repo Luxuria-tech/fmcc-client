@@ -14,7 +14,7 @@ export interface Contact {
 
 @Injectable({ providedIn: 'root' })
 export class ContactService {
-  private apiUrl = 'this.http.get('${environment.apiUrl}/contacts');
+  private api = 'this.http.get('${environment.apiUrl}/contacts');
 
   constructor(private http: HttpClient) {}
 
