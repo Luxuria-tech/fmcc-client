@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment.prod.ts';
+import { environment } from 'src/environments/environment';
+
 
 export interface Blog {
   id?: number;
