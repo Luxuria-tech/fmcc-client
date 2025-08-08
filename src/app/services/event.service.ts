@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {environment} from 'src/environments/environment.prod.ts';
+import { environment } from 'src/environments/environment';
+
 
 
 export interface Event {
@@ -16,7 +17,8 @@ export interface Event {
   providedIn: 'root'
 })
 export class EventService {
-  private api = 'this.http.get('${environment.apiUrl}/events'); 
+  private api = `${environment.apiUrl}/events`;
+
 
   constructor(private http: HttpClient) {}
 
