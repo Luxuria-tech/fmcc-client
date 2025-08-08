@@ -8,7 +8,7 @@
       <!-- Scrollable container -->
     <div class="fmcc-card-scroll-container" #scrollContainer>
   <div class="fmcc-blog-card" *ngFor="let blog of blogPosts; index as i">
-    <img [src]="'http://localhost:5000' + blog.image_url" alt="Preserving Fako Heritage" width="200" height="200">
+    <img [src]="'https://fmcc-be.onrender.com' + blog.image_url" alt="Preserving Fako Heritage" width="200" height="200">
     <div class="fmcc-card-content">
       <h3>{{ blog.title }}</h3>
       <p>{{ blog.description | slice:0:40 }}...</p>
