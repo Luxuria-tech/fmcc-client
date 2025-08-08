@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {environment} from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
 
 export interface Blog {
   id?: number;
@@ -15,8 +15,7 @@ export interface Blog {
 
 @Injectable({ providedIn: 'root' })
 export class BlogService {
-  
-  private apiUrl = 'this.http.get('${environment.apiUrl}/blogs');
+  private api = `${environment.apiUrl}/blogs`;
 
   constructor(private http: HttpClient) {}
 
