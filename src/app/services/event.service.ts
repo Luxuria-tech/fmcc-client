@@ -16,7 +16,7 @@ export interface Event {
   providedIn: 'root'
 })
 export class EventService {
-  private api = 'this.http.get('${environment.apiUrl}/contacts'); 
+  private apiUrl = 'this.http.get('${environment.apiUrl}/events'); 
 
   constructor(private http: HttpClient) {}
 
