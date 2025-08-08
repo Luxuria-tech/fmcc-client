@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-
 export interface MomoPayload {
   fullName: string;
   momoNumber: string;
@@ -14,20 +13,21 @@ export interface MomoPayload {
   providedIn: 'root'
 })
 export class MomoService {
-  private apiUrl = ${environment.apiUrl}/payments;
+  // Corrected with backticks and single endpoint definition
+  private apiUrl = `${environment.apiUrl}/payments`;
 
   constructor(private http: HttpClient) {}
 
   // For requesting Momo payment
   requestMomo(data: MomoPayload): Observable<{ message: string; reference: string }> {
     return this.http.post<{ message: string; reference: string }>(
-      `${this.apiUrl}/payments`,
+      this.apiUrl,
       data
     );
   }
 
-  // Example: If you want to fetch payment logs or data
+  // Example: Fetch payment logs or data
   getPayments(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/payments`);
+    return this.http.get(this.apiUrl);
   }
 }
