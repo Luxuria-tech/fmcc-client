@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {environment} from 'src/environments/environment'
 
 export interface MomoPayload {
   fullName: string;
@@ -10,7 +11,8 @@ export interface MomoPayload {
 
 @Injectable({ providedIn: 'root' })
 export class MomoService {
-  private api = 'http://localhost:5000/api/payments';
+   private apiUrl = 'this.http.get('${environment.apiUrl}/payments'); 
+
 
   constructor(private http: HttpClient) {}
 
