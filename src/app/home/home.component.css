@@ -302,7 +302,7 @@
 .diagonal-image-stack {
   position: absolute;       /* Make it float inside hero */
   top: 80px;               /* Push upward */
-  left: 926px;
+  left: 726px;
   width: 420px;
   height: 420px;
   z-index: 5;
@@ -334,12 +334,7 @@
   transform: translateY(-6px);
 }
 
-@media (max-width: 480px) {
-  .diagonal-container {
-    transform: scale(0.8);
-    transform-origin: top left;
-  }
-}
+
 
 .underline {
   text-decoration: underline;
@@ -683,7 +678,12 @@ p {
   
 
   @media (max-width: 960px) {
-    
+    .diagonal-image-stack{
+      display: none;
+    }
+    .hero{
+      display: block;
+    }
     .search-field{
       width: 250px;
     }
@@ -706,7 +706,12 @@ p {
   }
 
   @media (max-width: 480px) {
-    
+    .diagonal-image-stack{
+      display: none;
+    }
+    .hero{
+      display: block;
+    }
      .look{
        flex-direction: unset !important;
       flex-wrap: unset !important;
