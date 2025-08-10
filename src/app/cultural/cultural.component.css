@@ -1139,14 +1139,17 @@ h2 {
  margin-left: 0;
     }
    .diagonal-image-stack{
-     display: none }
-   
+     display: none; }
+   .hero{
+     display: block;}
     
   }
 
   @media (max-width: 480px) {
       .diagonal-image-stack{
-     display: none }
+     display: none; }
+     .hero{
+     display: block;}
     
      .look{
        flex-direction: unset !important;
