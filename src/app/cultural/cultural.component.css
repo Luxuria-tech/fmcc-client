@@ -511,7 +511,7 @@
 .diagonal-image-stack {
   position: absolute;       /* Make it float inside hero */
   top: 80px;               /* Push upward */
-  left: 926px;
+  left: 826px;
   width: 420px;
   height: 420px;
   z-index: 5;
@@ -1138,11 +1138,15 @@ h2 {
    gap: 0;
  margin-left: 0;
     }
+   .diagonal-image-stack{
+     display: none }
    
     
   }
 
   @media (max-width: 480px) {
+      .diagonal-image-stack{
+     display: none }
     
      .look{
        flex-direction: unset !important;
