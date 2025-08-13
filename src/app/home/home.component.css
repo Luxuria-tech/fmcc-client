@@ -302,7 +302,7 @@
 .diagonal-image-stack {
   position: absolute;       /* Make it float inside hero */
   top: 80px;               /* Push upward */
-  left: 726px;
+  left: 826px;
   width: 420px;
   height: 420px;
   z-index: 5;
@@ -686,6 +686,7 @@ p {
     }
     .search-field{
       width: 250px;
+      margin-bottom: 15px;
     }
     .message-container{
       padding-top: 80px;
@@ -728,5 +729,14 @@ p {
       height: auto;
       margin-top: 210px;
     }
+  }
+@media (min-width: 1024px) {
+  .diagonal-image-stack {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 420px;
+  height: 420px;
+  z-index: 5;
   }
   
