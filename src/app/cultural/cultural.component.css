@@ -1176,3 +1176,12 @@ h2 {
       margin-top: 120px;
     }
   }
+@media (min-width: 1024px) {
+  .diagonal-image-stack {
+    position: relative;
+    top: 80px;               /* Push upward */
+  left: 896px;
+    width: 420px;
+  height: 420px;
+  z-index: 5;
+  }
